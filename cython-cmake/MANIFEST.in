@@ -1,1 +1,1 @@
-recursive-include cmake *.cmake
+include cython_cmake/Findcython.cmake

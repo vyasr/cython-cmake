@@ -32,6 +32,9 @@ test = [
     "build>=1.0.0",
 ]
 
+[project.entry-points."cmake.module"]
+cython_cmake = "cython_cmake"
+
 [project.urls]
 Homepage = "https://github.com/vyasr/cython-cmake"
 
