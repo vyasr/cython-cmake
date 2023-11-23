@@ -4,7 +4,8 @@
    :maxdepth: 2
    :caption: Contents:
 
-   examples.rst
+   examples
+   api
 
 
 Indices and tables

@@ -7,6 +7,6 @@ project = "cython-cmake"
 copyright = "2023, Vyas Ramasubramani"
 author = "Vyas Ramasubramani"
 
-extensions = []
+extensions = ["sphinxcontrib.moderncmakedomain"]
 
 html_theme = "sphinx_rtd_theme"

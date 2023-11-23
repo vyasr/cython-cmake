@@ -33,7 +33,8 @@ test = [
 ]
 docs = [
     "sphinx",
-    "sphinx-rtd-theme"
+    "sphinx-rtd-theme",
+    "sphinxcontrib-moderncmakedomain",
 ]
 
 [project.entry-points."cmake.module"]

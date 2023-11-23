@@ -40,11 +40,10 @@ Result Targets
 
 Result Variables
 ^^^^^^^^^^^^^^^^
-  :cmake:variable:`CYTHON_COMPILE_CREATED_FILES` is set to the absolute path to
+  ``CYTHON_COMPILE_CREATED_FILES`` is set to the absolute path to
   the list of generated files.
 
 #]=======================================================================]
-# cython: Transpile a Cython file to C or C++.
 function(cython)
   list(APPEND CMAKE_MESSAGE_CONTEXT "cython")
 

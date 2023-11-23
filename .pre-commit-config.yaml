@@ -23,6 +23,9 @@ repos:
     hooks:
       - id: cmake-format
       - id: cmake-lint
+        # Need to ignore C0112 because cmake-lint doesn't recognize function
+        # comments with bracket arguments.
+        args: ["--disabled-codes", "C0112"]
   - repo: https://github.com/codespell-project/codespell
     rev: v2.2.6
     hooks:
