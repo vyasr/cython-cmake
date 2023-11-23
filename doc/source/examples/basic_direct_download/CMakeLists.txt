@@ -7,9 +7,10 @@ find_package(
   REQUIRED)
 
 if(NOT EXISTS ${CMAKE_CURRENT_BINARY_DIR}/CYTHON_CMAKE.cmake)
-  file(DOWNLOAD https://raw.githubusercontent.com/vyasr/cython-cmake/main/CYTHON_CMAKE.cmake
-      ${CMAKE_CURRENT_BINARY_DIR}/CYTHON_CMAKE.cmake
-  )
+  file(
+    DOWNLOAD
+    https://raw.githubusercontent.com/vyasr/cython-cmake/main/CYTHON_CMAKE.cmake
+    ${CMAKE_CURRENT_BINARY_DIR}/CYTHON_CMAKE.cmake)
 endif()
 include(${CMAKE_CURRENT_BINARY_DIR}/CYTHON_CMAKE.cmake)
 

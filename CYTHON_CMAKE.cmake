@@ -1,8 +1,8 @@
 # This file provides a convenient entrypoint for using the CMake functions in
 # this package without installing the cython-cmake Python package.
 
-
-set(cython-cmake-url https://github.com/vyasr/cython-cmake/archive/refs/heads/main.zip)
+set(cython-cmake-url
+    https://github.com/vyasr/cython-cmake/archive/refs/heads/main.zip)
 
 include(FetchContent)
 
