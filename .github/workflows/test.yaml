@@ -18,3 +18,14 @@ jobs:
         python-version: 3.11
     - name: Install package and run tests
       run: "ci/run_tests.sh"
+  build-docs:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.config.python }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+    - name: Install package and build documentation
+      run: "ci/build_docs.sh"
