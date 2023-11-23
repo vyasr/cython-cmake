@@ -14,10 +14,19 @@ With this approach, you can simply find the Cython module and execute the comman
    :language: cmake
 
 
+Using with other build backends
+====================================
+
+If your build backend does not automatically discover the CMake module exported by cython-cmake, it can be easily found using a bit of custom CMake code:
+
+.. literalinclude :: examples/basic_py_build_cmake/CMakeLists.txt
+   :language: cmake
+
+
 Using directly via CMake
 ========================
 
-If for some reason you need access to Cython outside the context of a normal Python package build, or if you simply prefer to rely on raw CMake, the project may be fetched and used directly via the helpful CYTHON_CMAKE.cmake module:
+If for some reason you need access to Cython outside the context of a normal Python package build, or if you simply prefer to rely on raw CMake, the project may be fetched and used directly via the helpful ``CYTHON_CMAKE.cmake`` module:
 
 .. literalinclude :: examples/basic_direct_download/CMakeLists.txt
    :language: cmake
