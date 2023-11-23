@@ -4,3 +4,4 @@ build/
 *__pycache__
 *.egg-info
 .py-build-cmake_cache
+_version.py
