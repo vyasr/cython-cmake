@@ -40,17 +40,30 @@ function(cython)
     cmake_path(REPLACE_FILENAME cython_filename ${cpp_filename} OUTPUT_VARIABLE cpp_filename)
     cmake_path(REMOVE_EXTENSION cython_module)
 
-    add_custom_command(OUTPUT ${cpp_filename}
-                       DEPENDS ${cython_filename}
+    set(full_cython_filename "${CMAKE_CURRENT_SOURCE_DIR}/${cython_filename}")
+    set(full_cpp_filename "${CMAKE_CURRENT_BINARY_DIR}/${cpp_filename}")
+
+    # Have to ensure that the directory exists before we can write to it.
+    cmake_path(GET full_cpp_filename PARENT_PATH cpp_directory)
+    file(MAKE_DIRECTORY ${cpp_directory})
+
+    add_custom_command(OUTPUT "${full_cpp_filename}"
+                       DEPENDS "${full_cython_filename}"
                        VERBATIM
-                       COMMENT "Transpiling ${CMAKE_CURRENT_SOURCE_DIR}/${cython_filename} to ${CMAKE_CURRENT_SOURCE_DIR}/${cpp_filename}"
+                       COMMENT "Transpiling ${full_cython_filename} to ${full_cpp_filename}"
                        # TODO: Is setting the input and output paths this way a robust solution, or
                        # are there cases where it might be problematic?
                        COMMAND "${CYTHON}" ${target_language} ${language_level}
                                ${_CYTHON_CYTHON_ARGS}
-                               "${CMAKE_CURRENT_SOURCE_DIR}/${cython_filename}" --output-file
-                               "${CMAKE_CURRENT_BINARY_DIR}/${cpp_filename}")
+                               "${full_cython_filename}" --output-file
+                               "${full_cpp_filename}")
 
+    # Create a target that can be depended on by downstream targets to ensure
+    # that the Cython file is compiled.
+    add_custom_target(
+        "${cython_module}${extension}"
+        DEPENDS "${full_cpp_filename}"
+    )
     list(APPEND CREATED_FILES "${CMAKE_CURRENT_BINARY_DIR}/${cpp_filename}")
   endforeach()
 
