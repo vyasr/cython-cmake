@@ -1,0 +1,20 @@
+name: test
+
+on: push
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.config.python }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+    - name: Install package and run tests
+      run: "ci/run_tests.sh"
