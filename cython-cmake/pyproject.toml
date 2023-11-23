@@ -47,3 +47,36 @@ license-files = ["LICENSE"]
 
 [tool.setuptools.package-data]
 "*" = ["*.cmake"]
+
+[tool.ruff.lint]
+extend-select = [
+    "A",           # flake8-builtins
+    "ANN",         # flake8-annotations
+    "ARG",         # flake8-unused-arguments
+    "B",           # flake8-bugbear
+    "BLE",         # flake8-blind-except
+    "C4",          # flake8-comprehensions
+    "COM",         # flake8-commas
+    "EM",          # flake8-errmsg
+    "FBT",         # flake8-boolean-trap
+    "FLY",         # flynt
+    "I",           # isort
+    "ICN",         # flake8-import-conventions
+    "ISC",         # flake8-implicit-str-concat
+    "N",           # flake8-naming
+    "PERF",        # perflint
+    "PGH",         # pygrep-hooks
+    "PIE",         # flake8-pie
+    "PL",          # pylint
+    "PT",          # flake8-pytest-style
+    "PTH",         # flake8-use-pathlib
+    "RET",         # flake8-return
+    "RUF",         # Ruff-specific
+    "S",           # eval -> literal_eval
+    "SIM",         # flake8-simplify
+    "T20",         # flake8-print
+    "TCH",         # flake8-type-checking
+    "TRY",         # tryceratops
+    "UP",          # pyupgrade
+    "YTT",         # flake8-2020
+]

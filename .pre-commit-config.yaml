@@ -12,3 +12,9 @@ repos:
       - id: name-tests-test
         args: ["--pytest-test-first"]
         exclude: "^tests/example_projects/"
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.1.6
+    hooks:
+      - id: ruff
+        args: ["--fix", "--show-fixes"]
+      - id: ruff-format

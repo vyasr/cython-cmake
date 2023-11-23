@@ -8,7 +8,9 @@ from build import ProjectBuilder
 from build.env import DefaultIsolatedEnv
 
 
-EXAMPLE_PROJECTS = glob.glob(os.path.join(os.path.dirname(__file__), "example_projects/*"))
+EXAMPLE_PROJECTS = glob.glob(
+    os.path.join(os.path.dirname(__file__), "example_projects/*")
+)
 
 
 def build_project(src, out):
@@ -16,7 +18,7 @@ def build_project(src, out):
         # Install the local copy of cython-cmake. This assumes that tests are being run
         # somewhere alongside the code.
         path_to_cython_cmake = os.path.abspath(
-            os.path.join(os.path.dirname(__file__), '../cython-cmake')
+            os.path.join(os.path.dirname(__file__), "../cython-cmake")
         )
         # Have to specify relative to localhost, see
         # https://github.com/pypa/pip/issues/6658
