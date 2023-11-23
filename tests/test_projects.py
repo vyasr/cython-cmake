@@ -8,7 +8,7 @@ from build import ProjectBuilder
 from build.env import DefaultIsolatedEnv
 
 
-PROJECTS = glob.glob(os.path.join(os.path.dirname(__file__), "projects/*"))
+EXAMPLE_PROJECTS = glob.glob(os.path.join(os.path.dirname(__file__), "example_projects/*"))
 
 
 def build_project(src, out):
@@ -28,7 +28,7 @@ def build_project(src, out):
         return builder.build("wheel", out)
 
 
-@pytest.mark.parametrize("project", PROJECTS)
+@pytest.mark.parametrize("project", EXAMPLE_PROJECTS)
 def test_build_project(project):
     with tempfile.TemporaryDirectory() as tmp:
         build_project(project, tmp)
