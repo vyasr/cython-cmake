@@ -8,9 +8,8 @@ find_package(
 
 # Grab the location of the CMake find module via the Python package.
 execute_process(
-  COMMAND
-    "${Python_EXECUTABLE}" -c
-    "import cython_cmake; import os; print(os.path.dirname(cython_cmake.__file__))"
+  COMMAND "${Python_EXECUTABLE}" -c "import cython_cmake; import os.path; \
+    print(os.path.dirname(cython_cmake.__file__))"
   OUTPUT_VARIABLE CYTHON_CMAKE_INCLUDE_DIR
   OUTPUT_STRIP_TRAILING_WHITESPACE)
 list(APPEND CMAKE_MODULE_PATH "${CYTHON_CMAKE_INCLUDE_DIR}")
