@@ -7,9 +7,6 @@ name = "example"
 version = "0.0.1"
 description = "Example project"
 
-[tool.py-build-cmake.module]
-directory = "."
-
 [tool.py-build-cmake.sdist]
 include = ["CMakeLists.txt"]
 
