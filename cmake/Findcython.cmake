@@ -61,7 +61,7 @@ function(cython)
     # Create a target that can be depended on by downstream targets to ensure
     # that the Cython file is compiled.
     add_custom_target(
-        "${cython_module}${extension}"
+        "${cython_module}_transpiled"
         DEPENDS "${full_transpiled_filename}"
     )
     list(APPEND CREATED_FILES "${CMAKE_CURRENT_BINARY_DIR}/${transpiled_filename}")
