@@ -7,6 +7,17 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  check-style:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.config.python }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+    - name: Run pre-commit hooks
+      run: "ci/check_style.sh"
   run-tests:
     runs-on: ubuntu-latest
     steps:
